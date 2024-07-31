@@ -76,7 +76,18 @@ tabs.forEach(tab => {
 
 
 /*==================== PORTFOLIO SWIPER  ====================*/
-
+let swiper = new Swiper('.portfolio__container', {
+    cssMode: true,
+    loop: true,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    }
+});
 
 /*==================== TESTIMONIAL ====================*/
 
@@ -85,7 +96,7 @@ tabs.forEach(tab => {
 const sections = document.querySelectorAll('section[id]')
 
 function scrollActive() {
-    const scrollY = window.pageYOffset
+    const scrollY = window.scrollY
 
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight

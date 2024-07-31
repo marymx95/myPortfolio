@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 
     <!--==================== SWIPER CSS ====================-->
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
 
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <title>Responsive Portfolio Website</title>
+    <title>Mary's Portfolio Website</title>
 </head>
 
 <body>
@@ -44,12 +44,12 @@
                         </a>
 
                     </li>
-                    <li class="nav__item">
+                    <!-- <li class="nav__item">
                         <a href="#services" class="nav__link">
                             <i class="uil uil-briefcase-alt nav__icon"></i>
                             Services
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav__item">
                         <a href="#portfolio" class="nav__link">
                             <i class="uil uil-scenery nav__icon"></i>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
                 <div class="home__scroll">
-                    <a href="" class="home__scroll-button button--flex">
+                    <a href="#about" class="home__scroll-button button--flex">
                         <i class="uil uil-mouse-alt home__scroll-mouse"></i>
                         <span class="home__scroll-name">Scroll down</span>
                         <i class="uil uil-arrow-down home__scroll-arrow"></i>
@@ -221,10 +221,19 @@
                         <div class="skills__data">
                             <div class="skills__titles">
                                 <h3 class="skills__name">React</h3>
-                                <span class="skills__number">70%</span>
+                                <span class="skills__number">60%</span>
                             </div>
                             <div class="skills__bar">
                                 <span class="skills__percentage skills__react"></span>
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">Vue.js</h3>
+                                <span class="skills__number">80%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__vue"></span>
                             </div>
                         </div>
                     </div>
@@ -269,6 +278,15 @@
                                 <span class="skills__percentage skills__sql"></span>
                             </div>
                         </div>
+                        <div class="skills__data">
+                            <div class="skills__titles">
+                                <h3 class="skills__name">C++</h3>
+                                <span class="skills__number">70%</span>
+                            </div>
+                            <div class="skills__bar">
+                                <span class="skills__percentage skills__cpp"></span>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -303,7 +321,7 @@
                                 <span class="qualification__subtitle">University of Michigan</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2020 - 2023
+                                    Jan 2020 - April 2023
                                 </div>
                             </div>
                             <div>
@@ -324,7 +342,7 @@
                                 <span class="qualification__subtitle">Schoolcraft College</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2016 - 2018
+                                    Aug 2016 - June 2018
                                 </div>
                             </div>
 
@@ -336,7 +354,7 @@
                                 <span class="qualification__subtitle">Schoolcraft College</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2014 - 2016
+                                    Jan 2014 - June 2016
                                 </div>
                             </div>
                             <div>
@@ -356,7 +374,7 @@
                                 <span class="qualification__subtitle">Maxar Technologies - Ypsilanti, Mi</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2023 - 2024
+                                    April 2023 - July 2024
                                 </div>
                             </div>
                             <div>
@@ -377,7 +395,7 @@
                                 <span class="qualification__subtitle">U.S. Bank - Remote</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2022 - 2022
+                                    June 2022 - Aug 2022
                                 </div>
                             </div>
 
@@ -389,7 +407,7 @@
                                 <span class="qualification__subtitle">Tech 4 Social Good - Ann Arbor, MI</span>
                                 <div class="qualification__calendar">
                                     <i class="uil uil-calendar-alt"></i>
-                                    2022
+                                    Feb 2022 - April 2022
                                 </div>
                             </div>
                             <div>
@@ -405,18 +423,77 @@
 
         <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle">Most recent work</span>
+            <div class="portfolio__container container swiper">
+                <div class="swiper-wrapper">
+                    <!--==================== PORTFOLIO 1 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio1.jpg" alt="" class="porfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Itunes Search Website</h3>
+                            <p class="portfolio__description"> Dynamic website leveraging the iTunes API to enable users
+                                to search for songs, albums, or artists with filters for genre, collection,
+                                and price.</p>
+                            <a href="https://marymx95.github.io/ItunesArtistSearch/"
+                                class="button button--flex button--small porfolio__button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== PORTFOLIO 2 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio2.jpg" alt="" class="porfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Digital Astroid Game</h3>
+                            <p class="portfolio__description"> Exciting asteroid game with dynamic levels, collectible
+                                shields, and smooth, responsive controls for an immersive
+                                experience.</p>
+                            <a href="https://marymx95.github.io/AsteroidGame/"
+                                class="button button--flex button--small porfolio__button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!--==================== PORTFOLIO 3 ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/portfolio3.jpg" alt="" class="porfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">My Portfolio Website</h3>
+                            <p class="portfolio__description"> A modern and responsive portfolio website that highlights
+                                my skills and
+                                qualifications that includes customizable light and dark modes.</p>
+                            <a href="#" class="button button--flex button--small porfolio__button">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
 
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
         </section>
 
         <!--==================== PROJECT IN MIND ====================-->
-        <section class="project section">
+        <!-- <section class="project section">
 
-        </section>
+        </section> -->
 
         <!--==================== TESTIMONIAL ====================-->
-        <section class="testimonial section">
+        <!-- <section class="testimonial section">
 
-        </section>
+        </section> -->
 
         <!--==================== CONTACT ME ====================-->
         <section class="contact section" id="contact">
@@ -446,19 +523,19 @@
                 <form action="" class="contact__form grid">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
-                            <label for="" class="contact__label">Name</label>
+                            <label class="contact__label">Name</label>
                             <input type="text" class="contact__input">
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Email</label>
+                            <label class="contact__label">Email</label>
                             <input type="text" class="contact__input">
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Project</label>
+                            <label class="contact__label">Project</label>
                             <input type="email" class="contact__input">
                         </div>
                         <div class="contact__content">
-                            <label for="" class="contact__label">Message</label>
+                            <label class="contact__label">Message</label>
                             <textarea name="" id="" cols="0" rows="7" class="contact__input"></textarea>
                         </div>
 
@@ -508,7 +585,7 @@
 
 
     <!--==================== SWIPER JS ====================-->
-    <script src=""></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
 
     <!--==================== MAIN JS ====================-->
     <script src="assets/js/main.js"></script>
