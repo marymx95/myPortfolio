@@ -530,6 +530,10 @@ img {
   width: 70%;
 }
 
+.skills__api {
+  width: 60%;
+}
+
 .skills__close .skills__list {
   height: 0;
   overflow: hidden;
