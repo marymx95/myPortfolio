@@ -158,3 +158,29 @@ themeButton.addEventListener('click', () => {
     localStorage.setItem('selected-theme', getCurrentTheme())
     localStorage.setItem('selected-icon', getCurrentIcon())
 })
+
+/*==================== CONTACT ME SUBMISSION ====================*/
+document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            document.getElementById('form-message').innerText = 'Successfully sent!';
+            form.reset(); // Reset the form
+            window.location.hash = ''; // Scroll to the top of the page
+        } else {
+            document.getElementById('form-message').innerText = 'Error sending the message.';
+        }
+    }).catch(error => {
+        document.getElementById('form-message').innerText = 'Error sending the message.';
+    });
+});
