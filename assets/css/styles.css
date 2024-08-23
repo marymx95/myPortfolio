@@ -1086,7 +1086,7 @@ img {
   }
 
   .home {
-    background-image: url('/assets/img/background.webp');
+    background-image: url('../img/background.webp');
     width: auto;
     min-height: 100vh;
     background-position: left 20%;
@@ -1175,7 +1175,7 @@ img {
 
 
   .home {
-    background-image: url('/assets/img/background.webp');
+
     backdrop-filter: blur(5px);
     width: auto;
     min-height: 100vh;
