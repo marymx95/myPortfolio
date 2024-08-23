@@ -326,12 +326,12 @@ img {
 
 .home__title {
   font-size: var(--big-font-size);
-  color: hsl(var(--hue-color), 8%, 15%);
+
 }
 
 .home__subtitle {
   font-size: var(--h3-font-size);
-  color: hsl(var(--hue-color), 8%, 45%);
+  color: var(--text-color);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-0-75);
 }
@@ -345,8 +345,9 @@ img {
 }
 
 .home__scroll-button {
-  float: right;
-  padding-top: 100px;
+  bottom: 30px;
+  position: absolute;
+  right: 50px;
   color: var(--first-color);
   transition: .3s;
 }
@@ -947,6 +948,12 @@ img {
 }
 
 @media screen and (min-width:768px) {
+  .home__subtitle {
+    color: hsl(var(--hue-color), 8%, 45%);
+  }
+
+  .home__title {}
+
   .home__small {
     display: none;
   }
@@ -1015,6 +1022,10 @@ img {
     padding-top: 5.5rem;
     column-gap: 2rem;
     margin: 0 0 0 auto;
+  }
+
+  .home__title {
+    color: hsl(var(--hue-color), 8%, 15%);
   }
 
 
