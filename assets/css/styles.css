@@ -58,7 +58,7 @@
 }
 
 /* Font size for large devices */
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 1024px) {
   :root {
     --big-font-size: 3rem;
     --h1-font-size: 2.25rem;
@@ -141,6 +141,7 @@ img {
   height: auto;
 }
 
+
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
   padding: 2rem 0 4rem;
@@ -172,6 +173,7 @@ img {
 .grid {
   display: grid;
   gap: 1.5rem;
+  /* justify-items: center; */
 }
 
 .header {
@@ -283,9 +285,16 @@ img {
 }
 
 .home__content {
-  grid-template-columns: .5fr 3fr;
+  grid-template-columns: .5fr 3fr .5fr;
   padding-top: 3.5rem;
   align-items: center;
+}
+
+.home__img {
+  width: 100%;
+  border-radius: .5rem;
+  justify-self: center;
+  align-self: center;
 }
 
 .home__social {
@@ -317,11 +326,12 @@ img {
 
 .home__title {
   font-size: var(--big-font-size);
+  color: hsl(var(--hue-color), 8%, 15%);
 }
 
 .home__subtitle {
   font-size: var(--h3-font-size);
-  color: var(--text-color);
+  color: hsl(var(--hue-color), 8%, 45%);
   font-weight: var(--font-medium);
   margin-bottom: var(--mb-0-75);
 }
@@ -335,6 +345,8 @@ img {
 }
 
 .home__scroll-button {
+  float: right;
+  padding-top: 100px;
   color: var(--first-color);
   transition: .3s;
 }
@@ -352,6 +364,7 @@ img {
   color: var(--title-color);
   font-weight: var(--font-medium);
   margin-right: var(--mb-0-25);
+  color: white;
 }
 
 .home__scroll-arrow {
@@ -387,7 +400,7 @@ img {
 
 /*==================== ABOUT ====================*/
 .about__img {
-  width: 200px;
+  width: 80%;
   border-radius: .5rem;
   justify-self: center;
   align-self: center;
@@ -463,7 +476,8 @@ img {
 
 .skills__list {
   row-gap: 1.5rem;
-  padding-left: 2.7rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .skills__titles {
@@ -637,6 +651,7 @@ img {
   width: 265px;
   border-radius: .5rem;
   justify-self: center;
+  border: solid 1px black;
 }
 
 .portfolio__title {
@@ -848,8 +863,22 @@ img {
     column-gap: 0;
   }
 
+  .home__small {
+    display: grid;
+    justify-items: center;
+  }
+
+  .home__large {
+    display: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
   .home__content {
-    grid-template-columns: .25fr 3fr;
+    grid-template-columns: .25fr 3fr .25fr;
   }
 
   .home__blob {
@@ -866,7 +895,20 @@ img {
 }
 
 /* For medium devices */
+@media screen and (min-width:350px) {
+  .home__small {
+    display: grid;
+  }
+
+  .home__large {
+    display: none;
+  }
+}
+
+/* For medium devices */
 @media screen and (min-width:568px) {
+
+
   .portfolio__content {
     height: 250px;
   }
@@ -879,9 +921,13 @@ img {
     grid-column: initial;
   }
 
+
+
   .home__img {
-    order: 1;
+    width: 100%;
+    border-radius: .5rem;
     justify-self: center;
+    align-self: center;
   }
 
   .about__container,
@@ -897,9 +943,18 @@ img {
     grid-template-columns: .6fr;
     justify-content: center;
   }
+
 }
 
 @media screen and (min-width:768px) {
+  .home__small {
+    display: none;
+  }
+
+  .home__large {
+    display: grid;
+  }
+
   .container {
     margin-left: auto;
     margin-right: auto;
@@ -959,11 +1014,10 @@ img {
   .home__content {
     padding-top: 5.5rem;
     column-gap: 2rem;
+    margin: 0 0 0 auto;
   }
 
-  .home__blob {
-    width: 270px;
-  }
+
 
   .home__scroll {
     display: block;
@@ -1026,6 +1080,71 @@ img {
     margin-top: 4.5rem;
 
   }
+
+  .main {
+    padding: 0;
+  }
+
+  .home {
+    background-image: url('/assets/img/background.webp');
+    width: auto;
+    min-height: 100vh;
+    background-position: left 20%;
+    /* Align the image to the left */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-size: cover;
+    /* Cover the entire container */
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+
+  .home__large .home__data {
+    position: relative;
+    z-index: 2;
+    /* Ensure text is above the SVG */
+    color: #333;
+    /* Text color */
+    padding: 20px;
+    /* Adjust padding if needed */
+
+
+  }
+
+  .blob {
+    position: absolute;
+    top: 48%;
+    /* Adjust positioning */
+    left: 50%;
+    /* Adjust positioning */
+    transform: translate(-50%, -50%);
+    /* Center the blob */
+    text-align: center;
+    /* Centertext */
+    width: 120%;
+    /* Adjust width as needed */
+    z-index: 1;
+  }
+
+  /* .blob-path .dark-theme {
+    fill: hsl(230 28% 12% / 70%);
+
+  } */
+
+  .blob-container {
+    top: 10%;
+    /* Ensure the text is on top */
+    position: relative;
+    /* Ensure proper positioning context */
+    width: 80%;
+    /* Adjust width as needed */
+    max-width: 800px;
+    /* Optional: max-width for better control */
+    margin: auto;
+    /* Center the blob-container */
+    text-align: center;
+    /* Center text */
+  }
 }
 
 /* For large devices */
@@ -1055,5 +1174,75 @@ img {
   }
 
 
+  .home {
+    background-image: url('/assets/img/background.webp');
+    backdrop-filter: blur(5px);
+    width: auto;
+    min-height: 100vh;
+    background-position: left 20%;
+    /* Align the image to the left */
+    background-repeat: no-repeat;
+    /* Prevent the image from repeating */
+    background-size: cover;
+    /* Cover the entire container */
+    background-attachment: scroll;
+    overflow: hidden;
+  }
 
+
+  .home__data {
+    position: relative;
+    z-index: 2;
+    position: relative;
+    /* Ensure text is above the SVG */
+    color: #333;
+    /* Text color */
+    padding: 20px;
+    /* Adjust padding if needed */
+
+
+  }
+
+  .blob {
+    position: absolute;
+    top: 48%;
+    /* Adjust positioning */
+    left: 50%;
+    /* Adjust positioning */
+    transform: translate(-50%, -50%);
+    /* Center the blob */
+    text-align: center;
+    /* Centertext */
+    width: 150%;
+    /* Adjust width as needed */
+    z-index: 1;
+  }
+
+  .blob-container {
+    top: 5%;
+    left: 20%;
+    /* Ensure the text is on top */
+    position: relative;
+    /* Ensure proper positioning context */
+    width: 80%;
+    /* Adjust width as needed */
+    max-width: 800px;
+    /* Optional: max-width for better control */
+    margin: auto;
+    /* Center the blob-container */
+    text-align: center;
+    /* Center text */
+  }
+
+}
+
+.cta-button {
+  position: absolute;
+  /* right: 10rem; */
+  /* Adjust distance from the right edge */
+  bottom: 2rem;
+  /* Adjust distance from the bottom edge */
+  background-color: rgba(24, 40, 52, 0.85);
+  /* Semi-transparent background color */
+  /* border: 1px solid rgba(54, 58, 62, 0.5); */
 }
