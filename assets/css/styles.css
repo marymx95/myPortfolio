@@ -7,7 +7,7 @@
 
   /*========== Colors ==========*/
   /* Change favorite color */
-  --hue-color: 230;
+  --hue-color: 245;
   /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
   /* HSL color mode */
@@ -23,10 +23,11 @@
   --container-color: #fff;
   --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
   --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+  --opposite-color: hsl(var(--hue-color), 8%, 95%);
 
   /*========== Font and typography ==========*/
   --body-font: 'Poppins', sans-serif;
-
+  --btn-secondary-text: #fff;
   /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px ... */
   --big-font-size: 2rem;
   --h1-font-size: 1.5rem;
@@ -72,7 +73,7 @@
 
 /*========== Variables Dark theme ==========*/
 body.dark-theme {
-
+  --btn-secondary-text: hsl(var(--hue-color), 8%, 15%);
   /* HSL color mode */
   --first-color-second: hsl(var(--hue-color), 30%, 8%);
   --title-color: hsl(var(--hue-color), 8%, 95%);
@@ -80,7 +81,7 @@ body.dark-theme {
   --input-color: hsl(var(--hue-color), 29%, 16%);
   --body-color: hsl(var(--hue-color), 28%, 12%);
   --container-color: hsl(var(--hue-color), 29%, 16%);
-
+  --opposite-color: hsl(var(--hue-color), 8%, 15%);
 }
 
 /*========== Button Dark/Light ==========*/
@@ -372,6 +373,15 @@ img {
   font-size: 1.25rem;
 }
 
+.avatar img {
+  width: 200px;
+
+}
+
+.avatar {
+  padding-top: 80px !important;
+}
+
 /*==================== BUTTONS ====================*/
 .button {
   display: inline-block;
@@ -382,9 +392,6 @@ img {
   font-weight: var(--font-medium);
 }
 
-.button:hover {
-  background-color: var(--first-color-alt);
-}
 
 .button__icon {
   font-size: 1.25rem;
@@ -396,10 +403,60 @@ img {
   display: inline-flex;
   align-items: center;
   border: none;
+  justify-content: center;
 
 }
 
+.btn-primary {
+  font-family: var(--body-font);
+  width: 100px;
+  height: 50px;
+  border-radius: 50px;
+  background: none;
+  border: 2px solid var(--title-color);
+  color: var(--title-color);
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 20px;
+}
+
+.btn-secondary {
+  width: 100px;
+  height: 50px;
+  background: var(--title-color);
+  border: 2px solid var(--title-color);
+
+  border-radius: 50px;
+  font-size: 12px;
+  color: var(--btn-secondary-text);
+}
+
+.about-btn {
+  margin-top: 30px;
+  display: inline-flex;
+}
+
 /*==================== ABOUT ====================*/
+.about {
+  text-align: center;
+}
+
+.about-text {
+  color: var(--title-color);
+}
+
+.desc_mobile_view {
+  display: none;
+}
+
+.about-text h1>span {
+  background: var(--Primary-Gradient,
+      linear-gradient(116deg, #ff8660 45.79%, #9a33ff 95.51%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .about__img {
   width: 80%;
   border-radius: .5rem;
@@ -591,6 +648,7 @@ img {
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
   column-gap: 1.5rem;
+  justify-items: center;
 }
 
 .qualification__title {
@@ -851,10 +909,19 @@ img {
 /*==================== MEDIA QUERIES ====================*/
 /* For small devices */
 @media screen and (max-width:350px) {
-  /* .container {
+
+  .desc_larger_view {
+    display: none;
+  }
+
+  .desc_mobile_view {
+    display: block;
+  }
+
+  .container {
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
-  } */
+  }
 
   .nav__menu {
     padding: 2rem .25rem 4rem;
@@ -893,6 +960,11 @@ img {
   .qualification__data {
     gap: .5rem;
   }
+
+  .avatar img {
+    width: 150px;
+    padding-top: 40px;
+  }
 }
 
 /* For medium devices */
@@ -904,11 +976,31 @@ img {
   .home__large {
     display: none;
   }
+
+  .desc_larger_view {
+    display: none;
+  }
+
+  .desc_mobile_view {
+    display: block;
+  }
 }
 
 /* For medium devices */
 @media screen and (min-width:568px) {
+  .desc_larger_view {
+    display: block;
+  }
 
+  .desc_mobile_view {
+    display: none;
+  }
+
+
+  .avatar img {
+    width: 200px;
+    padding-top: 40px;
+  }
 
   .portfolio__content {
     height: 250px;
@@ -945,14 +1037,13 @@ img {
     justify-content: center;
   }
 
+
 }
 
 @media screen and (min-width:768px) {
   .home__subtitle {
     color: hsl(var(--hue-color), 8%, 45%);
   }
-
-  .home__title {}
 
   .home__small {
     display: none;
@@ -1050,6 +1141,15 @@ img {
     text-align: initial;
   }
 
+  .about {
+    text-align: center;
+  }
+
+  .about-text {
+    width: 652px;
+    margin: 30px auto;
+  }
+
   .about__info {
     justify-content: space-between;
   }
@@ -1096,65 +1196,23 @@ img {
     padding: 0;
   }
 
-  .home {
-    background-image: url('../img/background.webp');
-    width: auto;
-    min-height: 100vh;
-    background-position: left 20%;
-    /* Align the image to the left */
-    background-repeat: no-repeat;
-    /* Prevent the image from repeating */
-    background-size: cover;
-    /* Cover the entire container */
-    background-attachment: fixed;
-    overflow: hidden;
+  .btn-primary {
+    width: 195px;
+    height: 64px;
+    border-radius: 50px;
+    background: none;
+
+    font-size: 22px;
+    margin-right: 20px;
   }
 
-  .home__large .home__data {
-    position: relative;
-    z-index: 2;
-    /* Ensure text is above the SVG */
-    color: #333;
-    /* Text color */
-    padding: 20px;
-    /* Adjust padding if needed */
+  .btn-secondary {
+    width: 195px;
+    height: 64px;
+    background: var(--title-color);
+    color: var(--btn-secondary-text);
+    font-size: 22px;
 
-
-  }
-
-  .blob {
-    position: absolute;
-    top: 48%;
-    /* Adjust positioning */
-    left: 50%;
-    /* Adjust positioning */
-    transform: translate(-50%, -50%);
-    /* Center the blob */
-    text-align: center;
-    /* Centertext */
-    width: 120%;
-    /* Adjust width as needed */
-    z-index: 1;
-  }
-
-  /* .blob-path .dark-theme {
-    fill: hsl(230 28% 12% / 70%);
-
-  } */
-
-  .blob-container {
-    top: 10%;
-    /* Ensure the text is on top */
-    position: relative;
-    /* Ensure proper positioning context */
-    width: 80%;
-    /* Adjust width as needed */
-    max-width: 800px;
-    /* Optional: max-width for better control */
-    margin: auto;
-    /* Center the blob-container */
-    text-align: center;
-    /* Center text */
   }
 }
 
@@ -1214,36 +1272,32 @@ img {
 
   }
 
-  .blob {
-    position: absolute;
-    top: 48%;
-    /* Adjust positioning */
-    left: 50%;
-    /* Adjust positioning */
-    transform: translate(-50%, -50%);
-    /* Center the blob */
+
+
+
+  .about {
     text-align: center;
-    /* Centertext */
-    width: 150%;
-    /* Adjust width as needed */
-    z-index: 1;
   }
 
-  .blob-container {
-    top: 5%;
-    left: 20%;
-    /* Ensure the text is on top */
-    position: relative;
-    /* Ensure proper positioning context */
-    width: 80%;
-    /* Adjust width as needed */
-    max-width: 800px;
-    /* Optional: max-width for better control */
-    margin: auto;
-    /* Center the blob-container */
-    text-align: center;
-    /* Center text */
+  .about-text {
+    width: 652px;
+    margin: 30px auto;
   }
+
+  .about-text h1 {
+    font-size: 40px;
+    line-height: 1;
+    color: var(--title-color);
+    ;
+  }
+
+
+  .about-text p {
+    font-size: 18px;
+    margin-top: 30px;
+  }
+
+
 
 }
 
