@@ -100,17 +100,34 @@ function scrollActive() {
 
     sections.forEach(current => {
         const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 50;
-        sectionId = current.getAttribute('id')
+        const sectionTop = current.offsetTop - 50
+        const sectionId = current.getAttribute('id')
+        const navLink = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+            navLink.classList.add('active-link')
         } else {
-            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            navLink.classList.remove('active-link')
         }
     })
 }
-window.addEventListener('scroll', scrollActive)
+
+// Ensure that 'home' is active when at the top of the page
+function checkHomeLink() {
+    const homeLink = document.querySelector('.nav__menu a[href*="home"]')
+    const scrollY = window.scrollY
+
+    if (scrollY === 0) {
+        homeLink.classList.add('active-link')
+    } else {
+        homeLink.classList.remove('active-link')
+    }
+}
+
+window.addEventListener('scroll', () => {
+    scrollActive()
+    checkHomeLink()
+})
 
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader() {
@@ -147,6 +164,10 @@ if (selectedTheme) {
     // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
     document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
     themeButton.classList[selectedIcon === 'uil-moon' ? 'add' : 'remove'](iconTheme)
+} else {
+    // Default to dark mode if no theme is stored
+    document.body.classList.add(darkTheme)
+    themeButton.classList.add('uil-moon')
 }
 
 // Activate / deactivate the theme manually with the button
